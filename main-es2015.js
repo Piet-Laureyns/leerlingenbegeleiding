@@ -63,7 +63,7 @@ module.exports = "<div class=\"center\">\n  <h1>\n    Er is iets fout gelopen.\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"center main\">\n  <h1>{{postIt.titel}}</h1>\n  <hr />\n  <div class=\"test center\" *ngIf=\"showSpinner\">\n    <mat-spinner class=\"mat-spinner-color\"></mat-spinner>\n  </div>\n  <iframe id=\"loader\" [src]=\"getUrl()\" width='100%' height='100%' frameborder='0'></iframe>\n  <!-- <iframe id='test' (load)=\"if(this.src) document.getElementById('test').style.display = 'none'\" [src]=\"getUrl()\" width='100%' height='100%' frameborder='0'></iframe> -->\n</div>"
+module.exports = "<div class=\"center main\">\n  <h1>{{postIt.titel}}</h1>\n  <hr />\n  <div class=\"content\" *ngIf=\"!postIt.hasMultipleUrls()\">\n\n    <div class=\"document\">\n      <iframe id=\"loader\" #iframe [src]=\"getUrl(postIt.urls[0])\" width='100%' height='100%' frameborder='0'>\n          <div class=\"test center\" >\n              <mat-spinner class=\"mat-spinner-color\"></mat-spinner>\n            </div>\n      </iframe>\n    </div>\n  </div>\n  <div class=\"content\" *ngIf=\"postIt.hasMultipleUrls()\">\n    <div class=\"row\" class=\"documents\">\n      <div class=\"documentButton\" *ngFor=\"let url of postIt.urls; let i = index\" (click)=\"selectUrl(url)\">\n        Document {{i+1}}\n      </div>\n    </div>\n    <div class=\"document\">\n      <iframe id=\"loader\" [src]=\"getUrl()\" width='100%' height='100%' frameborder='0'></iframe>\n    </div>\n\n  </div>\n\n\n  <!-- <iframe id='test' (load)=\"if(this.src) document.getElementById('test').style.display = 'none'\" [src]=\"getUrl()\" width='100%' height='100%' frameborder='0'></iframe> -->\n</div>\n"
 
 /***/ }),
 
@@ -232,75 +232,115 @@ let DataService = class DataService {
     getDataHetNest(id) {
         // Psycho-Sociaal Functioneren
         const data1 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kleine klasgroep', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rust momenten', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitstappen', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Praatronde', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Belonings- activiteiten', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Individuele gesprekken', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Huiselijke Sfeer', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Verjaardags- kalender', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Emoties', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Meter/Peter -schap', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Externe Hulp', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf')
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kleine klasgroep', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf',
+                'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/HetNestDriehoek1/pdf1.pdf',
+                'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/HetNestDriehoek1/pdf2.pdf',
+                'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/HetNestDriehoek1/pdf3.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rust momenten', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf',
+                'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/HetNestDriehoek1/pdf1.pdf',
+                'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/HetNestDriehoek1/pdf2.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitstappen', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf',
+                'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/HetNestDriehoek1/pdf1.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Praatronde', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Belonings- activiteiten', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Individuele gesprekken', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Huiselijke Sfeer', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Verjaardags- kalender', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Emoties', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Meter/Peter -schap', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Externe Hulp', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Aangepast Onthaal', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('1-1 Begeleiding', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf')
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Aangepast Onthaal', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('1-1 Begeleiding', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Externe Diensten', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Vertrouwens persoon', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Tucht procedure', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf')
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Externe Diensten', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Vertrouwens persoon', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Tucht procedure', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
         ]);
         // Leren en Studeren
-        const data2 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([ // Bottom
-        ], [ // Middle
-        ], [ // Top
+        const data2 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('IHP', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('RSV', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kookles', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kutsel les', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Huishoude- lijke skills', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Schoolse skills', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Taken adhv werkdozen', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Dagschema', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sociale skills', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Maatschap- pelijk gedrag', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitstappen op maat', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('SMT', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('extra- muros activiteiten', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klad overschrijdend werken', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
+        ], [
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Leren in klas blijven', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('SMOG', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
+        ], [
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Alternatieve Trajecten iCLB', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
         ]);
         // Schoolloopbaan
-        const data3 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([ // Bottom
-        ], [ // Middle
-        ], [ // Top
+        const data3 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Draaiboek 17+', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ouder- contacten met tolk', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Indeling klasgroep', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('ondersteun- ingsplan', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Info nieuwe leerling', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Aterlier- werking', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Werken rond talenten', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rots en Waten', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Onderzoeks- instrument', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talent gericht werken', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talent show', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
+        ], [
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stage Roomer', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Oudercontact op vraag ouders', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Proefperiode OV2', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Psycho- educatie', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Overgang school en dagcentra', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
+        ], [
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('School- psycholoog voor familie therapie', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'])
         ]);
         // Preventieve Gezondheidszorg
         const data4 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Tanden poetsen', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sportdag', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Onderhoud kledij', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezonde voeding', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Dagelijk fruit', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Water drinken', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Drinkfles', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('wandelingen', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rust momenten', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zwem lessen', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Toilet bezoek', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Luizen controle', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zonne bescherm- ing', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Seizoens- kledij', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Voldoende drinken', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Info tand verzorging', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('WGC', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Evenwichtige voeding', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Yoga', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Beweeg moment 10u30', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Fluo-vestje', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Beweeg- parcours', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Tanden poetsen', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sportdag', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Onderhoud kledij', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezonde voeding', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Dagelijk fruit', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Water drinken', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Drinkfles', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('wandelingen', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rust momenten', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zwem lessen', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Toilet bezoek', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Luizen controle', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zonne bescherm- ing', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Seizoens- kledij', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Voldoende drinken', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Info tand verzorging', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('WGC', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Evenwichtige voeding', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Yoga', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Beweeg moment 10u30', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Fluo-vestje', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Beweeg- parcours', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Douche momenten', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ortho- pedische schoenen', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Nagels knippen', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('RSV Privé', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Luiers', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Eten geven', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Luizen', 'groen', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Douche onder begeleiding', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Lichaams- gewicht', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Alcohol en tabak', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Dragen van een bril', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Neus snuiten', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('G-Sportclub zoeken', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Pilgebruik', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('G-sportclub uitnodigen', 'blauw', 'https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf'),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Douche momenten', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ortho- pedische schoenen', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Nagels knippen', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('RSV Privé', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Luiers', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Eten geven', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Luizen', 'groen', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Douche onder begeleiding', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Lichaams- gewicht', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Alcohol en tabak', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Dragen van een bril', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Neus snuiten', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('G-Sportclub zoeken', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Pilgebruik', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('G-sportclub uitnodigen', 'blauw', ['https://piet-laureyns.github.io/leerlingenbegeleiding/assets/Leerlingenbegeleiding.pdf']),
         ], [ // Top
         ]);
         switch (id) {
@@ -436,7 +476,7 @@ PageNotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".main {\r\n  height: 100%;\r\n  overflow-y: hidden;\r\n}\r\n\r\n.mat-spinner-color::ng-deep circle {\r\n  stroke: var(--blue) !important;\r\n}\r\n\r\n.test {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.mat-dialog-content {\r\n  overflow-y: hidden !important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9zdC1pdC9wb3N0LWl0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsOEJBQThCO0FBQ2hDOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtFQUNyQixtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSw2QkFBNkI7QUFDL0IiLCJmaWxlIjoic3JjL2FwcC9wb3N0LWl0L3Bvc3QtaXQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYWluIHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgb3ZlcmZsb3cteTogaGlkZGVuO1xyXG59XHJcblxyXG4ubWF0LXNwaW5uZXItY29sb3I6Om5nLWRlZXAgY2lyY2xlIHtcclxuICBzdHJva2U6IHZhcigtLWJsdWUpICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi50ZXN0IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG4ubWF0LWRpYWxvZy1jb250ZW50IHtcclxuICBvdmVyZmxvdy15OiBoaWRkZW4gIWltcG9ydGFudDtcclxufVxyXG4iXX0= */"
+module.exports = ".main {\r\n  height: 100%;\r\n  overflow-y: hidden;\r\n}\r\n\r\n.mat-spinner-color::ng-deep circle {\r\n  stroke: var(--blue) !important;\r\n}\r\n\r\n.content {\r\n  height: 100%;\r\n}\r\n\r\n.document {\r\n  height: 100%;\r\n}\r\n\r\n.test {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.mat-dialog-content {\r\n  overflow-y: hidden !important;\r\n}\r\n\r\n.documents{\r\n  width: auto;\r\n  margin-right: 5%;\r\n  margin-left: 5%;\r\n  margin-bottom: 1vw;\r\n  border: solid var(--darkblue) 0.1vw;\r\n  background-color: var(--blue);\r\n  border-radius: 10px;\r\n}\r\n\r\n.documentButton{\r\n  margin-left: 1vw;\r\n  margin-right: 1vw;\r\n  padding: 0.5vw;\r\n  font-size: 2vw;\r\n  background-color: var(--lightblue);\r\n  display: inline-block;\r\n  color: white;\r\n  vertical-align: middle;\r\n}\r\n\r\n.documentButton:hover{\r\n  cursor: pointer;\r\n  opacity: 75%;\r\n}\r\n\r\n@media only screen and (min-width: 400px) and (max-width: 960px) {\r\n  h1 {\r\n    font-size: 4vw;\r\n  }\r\n\r\n  .documentButton{\r\n    font-size: 1.5vw;\r\n\r\n  }\r\n\r\n\r\n}\r\n\r\n@media only screen and (max-width: 400px) {\r\n\r\n  h1 {\r\n    margin-top: 1vw;\r\n    font-size: 6vw;\r\n  }\r\n\r\n  .documentButton{\r\n    font-size: 0.8vh;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9zdC1pdC9wb3N0LWl0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsOEJBQThCO0FBQ2hDOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtFQUNyQixtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSw2QkFBNkI7QUFDL0I7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsbUNBQW1DO0VBQ25DLDZCQUE2QjtFQUM3QixtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCxjQUFjO0VBQ2Qsa0NBQWtDO0VBQ2xDLHFCQUFxQjtFQUNyQixZQUFZO0VBQ1osc0JBQXNCO0FBQ3hCOztBQUVBO0VBQ0UsZUFBZTtFQUNmLFlBQVk7QUFDZDs7QUFFQTtFQUNFO0lBQ0UsY0FBYztFQUNoQjs7RUFFQTtJQUNFLGdCQUFnQjs7RUFFbEI7OztBQUdGOztBQUVBOztFQUVFO0lBQ0UsZUFBZTtJQUNmLGNBQWM7RUFDaEI7O0VBRUE7SUFDRSxnQkFBZ0I7RUFDbEI7QUFDRiIsImZpbGUiOiJzcmMvYXBwL3Bvc3QtaXQvcG9zdC1pdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW4ge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBvdmVyZmxvdy15OiBoaWRkZW47XHJcbn1cclxuXHJcbi5tYXQtc3Bpbm5lci1jb2xvcjo6bmctZGVlcCBjaXJjbGUge1xyXG4gIHN0cm9rZTogdmFyKC0tYmx1ZSkgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmNvbnRlbnQge1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuLmRvY3VtZW50IHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi50ZXN0IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG4ubWF0LWRpYWxvZy1jb250ZW50IHtcclxuICBvdmVyZmxvdy15OiBoaWRkZW4gIWltcG9ydGFudDtcclxufVxyXG5cclxuLmRvY3VtZW50c3tcclxuICB3aWR0aDogYXV0bztcclxuICBtYXJnaW4tcmlnaHQ6IDUlO1xyXG4gIG1hcmdpbi1sZWZ0OiA1JTtcclxuICBtYXJnaW4tYm90dG9tOiAxdnc7XHJcbiAgYm9yZGVyOiBzb2xpZCB2YXIoLS1kYXJrYmx1ZSkgMC4xdnc7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmx1ZSk7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxufVxyXG5cclxuLmRvY3VtZW50QnV0dG9ue1xyXG4gIG1hcmdpbi1sZWZ0OiAxdnc7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxdnc7XHJcbiAgcGFkZGluZzogMC41dnc7XHJcbiAgZm9udC1zaXplOiAydnc7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHRibHVlKTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbn1cclxuXHJcbi5kb2N1bWVudEJ1dHRvbjpob3ZlcntcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgb3BhY2l0eTogNzUlO1xyXG59XHJcblxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDQwMHB4KSBhbmQgKG1heC13aWR0aDogOTYwcHgpIHtcclxuICBoMSB7XHJcbiAgICBmb250LXNpemU6IDR2dztcclxuICB9XHJcblxyXG4gIC5kb2N1bWVudEJ1dHRvbntcclxuICAgIGZvbnQtc2l6ZTogMS41dnc7XHJcblxyXG4gIH1cclxuXHJcblxyXG59XHJcblxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDQwMHB4KSB7XHJcblxyXG4gIGgxIHtcclxuICAgIG1hcmdpbi10b3A6IDF2dztcclxuICAgIGZvbnQtc2l6ZTogNnZ3O1xyXG4gIH1cclxuXHJcbiAgLmRvY3VtZW50QnV0dG9ue1xyXG4gICAgZm9udC1zaXplOiAwLjh2aDtcclxuICB9XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -465,16 +505,24 @@ let PostItComponent = class PostItComponent {
         this.dialogRef = dialogRef;
         this.postIt = postIt;
         this.sanitizer = sanitizer;
-        this.showSpinner = false;
+        this.showSpinner = true;
     }
     ngOnInit() {
-        console.log(this.getUrl());
+        console.log(this.postIt.urls);
+        this.selectedUrl = this.postIt.urls[0];
     }
     getUrl() {
-        return this.sanitizer.bypassSecurityTrustResourceUrl('https://docs.google.com/viewer?url=' + this.postIt.url + '&embedded=true');
+        return this.sanitizer.bypassSecurityTrustResourceUrl('https://docs.google.com/viewer?url=' + this.selectedUrl + '&embedded=true');
     }
-    documentLoaded() {
-        this.showSpinner = false;
+    test(test) {
+        console.log(test);
+    }
+    selectUrl(url) {
+        this.selectedUrl = url;
+    }
+    documentLoaded(isLoaded) {
+        console.log(isLoaded);
+        this.showSpinner = isLoaded;
         // if(document.getElementById('loader').style.display = 'none'){
         //   this.showSpinner = false;
         // }
@@ -512,19 +560,22 @@ PostItComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostIt", function() { return PostIt; });
 class PostIt {
-    constructor(titel, kleur, url) {
+    constructor(titel, kleur, urls) {
         this.titel = titel;
         this.kleur = kleur;
-        this.url = url;
+        this.urls = urls;
     }
     isGroen() {
         return this.kleur === 'groen';
+    }
+    hasMultipleUrls() {
+        return this.urls.length > 1;
     }
 }
 PostIt.ctorParameters = () => [
     { type: String },
     { type: String },
-    { type: String }
+    { type: Array }
 ];
 
 
