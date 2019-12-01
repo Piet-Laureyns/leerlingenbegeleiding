@@ -74,7 +74,7 @@ module.exports = "<div class=\"center main\">\n  <div class='header'>\n    <div 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main center\">\n  <div class=\"nav\">\n    <div class=\"backButton\">\n      <button class='btn btn-primary' routerLink=\"\"><span class=\"buttonText\"> ← Terug naar Home</span></button>\n    </div>\n    <div class=\"center titel\">\n      <h1>{{school}} - {{titel}}</h1>\n    </div>\n  </div>\n  <div class='body' *ngIf=\"!noData\">\n    <div [style.background-image]=\"backgroundImage\" id=\"content\" class=\"content\" *ngIf=\"data\">\n\n      <div class=\"top\">\n        <div *ngFor=\"let postIt of data.postItsTop\" class=\"postit\"\n          [ngClass]=\"{'postit-groen': postIt.isGroen(), 'postit-small': smallPostIts, 'postit-normal': !smallPostIts,'postit-extra-small': extraSmallPostIts, 'postit-url-exists': postIt.hasUrl()}\"\n          (click)=\"showPostIt(postIt)\">\n          <p>{{postIt.titel}}</p>\n        </div>\n      </div>\n\n      <div class=\"middle\">\n        <div *ngFor=\"let postIt of data.postItsMiddle\" class=\"postit\"\n          [ngClass]=\"{'postit-groen': postIt.isGroen(), 'postit-small': smallPostIts, 'postit-normal': !smallPostIts,'postit-extra-small': extraSmallPostIts, 'postit-url-exists': postIt.hasUrl()}\"\n          (click)=\"showPostIt(postIt)\">\n          <p>{{postIt.titel}}</p>\n        </div>\n      </div>\n\n      <div class=\"bottom\">\n        <div *ngFor=\"let postIt of data.postItsBottom\" class=\"postit\"\n          [ngClass]=\"{'postit-groen': postIt.isGroen(), 'postit-small': smallPostIts, 'postit-normal': !smallPostIts,'postit-extra-small': extraSmallPostIts, 'postit-url-exists': postIt.hasUrl()}\"\n          (click)=\"showPostIt(postIt)\">\n          <p>{{postIt.titel}}</p>\n        </div>\n      </div>\n\n    </div>\n  </div>\n  <div *ngIf=\"noData\" style=\"margin-top:5%;\">\n    <h2>Deze pyramide moet nog aangemaakt worden.</h2>\n  </div>\n</div>\n"
+module.exports = "<div class=\"main center\">\n  <div class=\"nav\">\n    <div class=\"backButton\">\n      <button class='btn btn-primary' routerLink=\"\"><span class=\"buttonText\"> ← Terug naar Home</span></button>\n    </div>\n    <div class=\"center titel\">\n      <h1>{{school}} - {{titel}}</h1>\n    </div>\n  </div>\n  <div class='body' *ngIf=\"!noData\">\n    <div [style.background-image]=\"backgroundImage\" id=\"content\" class=\"content\" *ngIf=\"data\">\n\n      <div class=\"top\">\n        <div class=\"uitbreiding\">\n          <h3>Uitbreiding van Zorg</h3>\n        </div>\n        <div *ngFor=\"let postIt of data.postItsTop\" class=\"postit\"\n          [ngClass]=\"{'postit-groen': postIt.isGroen(), 'postit-small': smallPostIts, 'postit-normal': !smallPostIts,'postit-extra-small': extraSmallPostIts, 'postit-url-exists': postIt.hasUrl()}\"\n          (click)=\"showPostIt(postIt)\">\n          <p>{{postIt.titel}}</p>\n        </div>\n      </div>\n\n      <div class=\"middle\">\n        <div class=\"verhoogde\">\n          <h3>Verhoogde Zorg</h3>\n        </div>\n        <div *ngFor=\"let postIt of data.postItsMiddle\" class=\"postit\"\n          [ngClass]=\"{'postit-groen': postIt.isGroen(), 'postit-small': smallPostIts, 'postit-normal': !smallPostIts,'postit-extra-small': extraSmallPostIts, 'postit-url-exists': postIt.hasUrl()}\"\n          (click)=\"showPostIt(postIt)\">\n          <p>{{postIt.titel}}</p>\n        </div>\n      </div>\n\n      <div class=\"bottom\">\n        <div class=\"basis\">\n          <h3>Brede Basiszorg</h3>\n        </div>\n        <div *ngFor=\"let postIt of data.postItsBottom\" class=\"postit\"\n          [ngClass]=\"{'postit-groen': postIt.isGroen(), 'postit-small': smallPostIts, 'postit-normal': !smallPostIts,'postit-extra-small': extraSmallPostIts, 'postit-url-exists': postIt.hasUrl()}\"\n          (click)=\"showPostIt(postIt)\">\n          <p>{{postIt.titel}}</p>\n        </div>\n      </div>\n\n    </div>\n  </div>\n  <div *ngIf=\"noData\" style=\"margin-top:5%;\">\n    <h2>Deze pyramide moet nog aangemaakt worden.</h2>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -241,9 +241,9 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rust momenten', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitstappen op maat', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Praatronde', 'groen', []),
-            // new PostIt('Belonings- activiteiten', 'groen', []),
-            // new PostIt('Individuele gesprekken', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Huiselijke Sfeer', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Huiselijke Sfeer', 'groen', ['https://drive.google.com/file/d/1F5Mpj0ufpNEkVNpNfMym_EqIIOzp4U6n/preview',
+                'https://drive.google.com/file/d/1Q7SxKbNlIH9cXw0O25GN7LY5kYL67vzY/preview',
+                'https://drive.google.com/file/d/1eUBPuRaUVemXQ4wwXrv6vlbQ_hJOtfvv/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Verjaardags- kalender', 'groen', ['https://drive.google.com/file/d/1c7S4o27UgB07zfgWncBhncJsI5LKi8uS/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Alles ok?', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Meter/Peter -schap', 'blauw', []),
@@ -262,29 +262,31 @@ var DataService = /** @class */ (function () {
         // Leren en Studeren
         var data2 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('IHP', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('RSV', 'groen', ['https://drive.google.com/file/d/1Pq0jt82EHrl0vEom4EWT4ipnR6GfQxU_/preview',
-                'https://drive.google.com/file/d/1SIe9OyogvR0rrOhaBziid7MBLxcbbv22/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('RSV', 'groen', ['https://drive.google.com/file/d/1SIe9OyogvR0rrOhaBziid7MBLxcbbv22/preview',
+                'https://drive.google.com/file/d/1Pq0jt82EHrl0vEom4EWT4ipnR6GfQxU_/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kookles', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Bosklas', 'groen', ['https://drive.google.com/file/d/1AVHrF-KqKbiqZ37P7e-8XPy5ViCtk4ZY/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Knutsel les', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Huishoude- lijke vaardigheden', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Schoolse vaardigheden', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Atelier werking', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Werkdozen', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Werkdozen', 'groen', ['https://drive.google.com/file/d/1U-XncElkJUjDQ4iC7te561HAyDKL_GG3/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Dagschema', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sociaal vaardig', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Maatschappe- lijk gedrag', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Extra-muros', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klas beloningen', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klasplan nieuw 29/11/19', 'groen', ['https://drive.google.com/file/d/1Z8hJvXG5mOujhXTVCS-PqnbizfGnQ3Te/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Extra-muros', 'blauw', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klas beloningen', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klas overschrijdend', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Arbeids interesse test', 'blauw', [])
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('SMT', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Leren in klas blijven', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('SMT', 'groen', ['https://drive.google.com/file/d/1n8kQYy6BQTlOgZnQWdU641Sp4kQ117w0/preview',
+                'https://drive.google.com/file/d/1LNordZnyZ4SKeYwtjkxTjrmtNkm9QokP/preview',
+                'https://drive.google.com/file/d/18XzoUCAv2enq_Cup5GoOgRLoTqLvJkK6/preview']),
+            // new PostIt('Leren in klas blijven', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('SMOG', 'groen', [])
         ], [ // Top
-        // new PostIt('Alternatieve Trajecten iCLB', 'groen', [])
         ]);
         // Schoolloopbaan
         var data3 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
@@ -293,11 +295,8 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Niveau groepen', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Inschrijvings- procedure', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kooklessen', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten portfolio', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten portfolio', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rots en Waten', 'blauw', [])
-            // new PostIt('Onderzoeks- instrument', 'blauw', []),
-            // new PostIt('Talent gericht werken', 'blauw', []),
-            // new PostIt('Talent show', 'blauw', [])
         ], [
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stage', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ouders', 'groen', []),
@@ -311,18 +310,21 @@ var DataService = /** @class */ (function () {
         var data4 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Tanden poetsen', 'groen', ['https://drive.google.com/file/d/1ghcGmfPNFTTEoYkWMakyLqqM9HMTDUc5/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sportdag', 'groen', ['https://drive.google.com/file/d/1CXzuaiLCL1tOvRcf_3xF2OfgY9lF0Lgx/preview']),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Onderhoud kledij', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Onderhoud kledij', 'groen', ['https://drive.google.com/file/d/1q5NHPUGSDd_NwzUWts5owOOWafYInrII/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezonde voeding', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Fruitsnack', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Enkel water', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Drinkfles', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('wandelingen', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Wandelingen', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rust momenten', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zwem lessen', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Toilet bezoek', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Luizen controle', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zonne- bescherming', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('RSV', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('RSV', 'groen', ['https://drive.google.com/file/d/1vwjBaUo00nZTRiloGfDmtFg4i7RxoRnT/preview',
+                'https://drive.google.com/file/d/1-GvzZUKLAbrexXVb_afBdgOKZnkaYnZ7/preview',
+                'https://drive.google.com/file/d/1IITQKzTbInWdbWBLLMT4Z7ck8j2CqU3X/preview',
+                'https://drive.google.com/file/d/13tx1yvr_fZna5HKMHEAKS5Ih1f1PH_vu/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Douche momenten', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kledij', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Voldoende drinken', 'blauw', []),
@@ -345,10 +347,10 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Drug preventie', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Bril', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Neus snuiten', 'blauw', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('G-sport club', 'blauw', [])
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('G-sport clubs', 'blauw', [])
             // new PostIt('Pilgebruik', 'blauw', []),
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('G-sport club uitnodigen', 'blauw', [])
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('G-sport clubs uitnodigen', 'blauw', [])
         ]);
         switch (id) {
             case '1': return data1;
@@ -362,16 +364,18 @@ var DataService = /** @class */ (function () {
         // Psychosociaal
         var data1 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Aanpak op maat', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Workshops', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Workshops', 'groen', ['https://drive.google.com/file/d/1vus7xHpFgC43brUabQrYrp_aX_abuuVE/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Koffie-onthaal', 'groen', ['https://drive.google.com/file/d/16Vjfm7GajoRaMawigQ0TyokEvynpeQvj/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('LSCI-training', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Leerlingenraad', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Leerlingenraad', 'groen', ['https://drive.google.com/file/d/1sdVAveFXc6kpEt33K6d1Cr863LxlZ9hw/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Schoolhond Louis', 'groen', ['https://drive.google.com/file/d/1TFkyz7rH2mLTIuRFz6_hVddi_7x06JT2/preview',
-                'https://drive.google.com/file/d/1dG3enKo0Fg4vzyuGjnC-esehf-Pii6pF/preview']),
+                'https://drive.google.com/file/d/1dG3enKo0Fg4vzyuGjnC-esehf-Pii6pF/preview',
+                'https://drive.google.com/file/d/1LYtcXBe71hzYo0km1GDMP7Z4TMEvuJ1Q/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Middagsport en spel', 'groen', ['https://drive.google.com/file/d/1CQFc0qfnmJM8vOx4h9IBNFJr1wzjb36f/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Tuin met kippen', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Pro-actieve cirkel', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitstappen/ 3-daagse', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitstappen/ 3-daagse', 'groen', ['https://drive.google.com/file/d/1LebZpHMZrZOH_D6eH9zsaJEMqnEyH364/preview',
+                'https://drive.google.com/file/d/1DUlrvvf38bi0z2MajzKeqbAfia4ldhNc/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Belonings- systeem', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ouder- betrokkenheid', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Muziek-zangles', 'blauw', []),
@@ -383,11 +387,12 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klas/school projecten', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Vertrouwens- persoon', 'blauw', [])
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Aangepast lessenrooster', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Aangepast lessenrooster', 'groen', ['https://drive.google.com/file/d/1QIYIMPidWgCXlzeUeKk1glZBfOKmQPAH/preview',
+                'https://drive.google.com/file/d/18FfF9yOWj95hHEJPpn0wLBmUV22CVuiV/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Individueel douche- moment', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Vluchtroute', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stille pauze', 'groen', ['https://drive.google.com/file/d/1B2jVJd9EXQOAZXgnQ-Zn8ppsU4g4aOh2/preview']),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gebruik koptelefoons', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gebruik koptelefoons', 'groen', ['https://drive.google.com/file/d/1lfTGnIjedT7G62WDutNSLjck8WnbRVX-/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Auti-hokjes', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Wat na school?', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('HERGO', 'blauw', [])
@@ -399,12 +404,14 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Workshops', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Traject begeleiding', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezondheids- beleid', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Autowerking', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Autiwerking', 'groen', ['https://drive.google.com/file/d/1uDsK_oVjLHo-86gIx0o0jyexLZhzirWW/preview',
+                'https://drive.google.com/file/d/1LgQHE2vC4HnGHV-lnBitGt5lmvYAeztm/preview',
+                'https://drive.google.com/file/d/1YR-zeUUz0K3fZoX0pnRPi9UzZUPJZwQy/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Pro-actieve cirkel', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('BS + BPT-uren', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Co-teacher', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitwerk', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Actieve middagpauze', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Actieve middagpauze', 'groen', ['https://drive.google.com/file/d/1tq5KtHCqvl6ELKxIHp1cfgGHdYChS5ez/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Vak- overschrijdend werken', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Verantwoord- elijkheidszin aanwakkeren', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Projectgericht werken', 'blauw', []),
@@ -414,8 +421,8 @@ var DataService = /** @class */ (function () {
         ]);
         // Schoolloopbaan
         var data3 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stages', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stage- begeleiding', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stages', 'groen', ['https://drive.google.com/file/d/1WTn-odOEzuzz1qmdPLs8zOYk8fZikItu/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stage- begeleiding', 'groen', ['https://drive.google.com/file/d/10yfexSBewFmZT1lYWQPT7yMm-FTZmdkb/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Informatie overdracht', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Smartschool', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Themawerking op talenten', 'groen', []),
@@ -430,7 +437,7 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ruimer stagenetwerk', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gevarieerder bandwerk', 'blauw', []),
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Schoolverlaters opvolgen', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Schoolverlaters opvolgen', 'groen', ['https://drive.google.com/file/d/19KkSORgPKDu_QNUzmXYkszlVDX28Eion/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Oud- leerlingen', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Duaal leren', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Begeleiden naar vakantiejob', 'blauw', [])
@@ -440,19 +447,21 @@ var DataService = /** @class */ (function () {
         ]);
         // Preventieve Gezondheidszorg
         var data4 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Tanden poetsen', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Opvolgen mond- hygiëne', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Tanden poetsen', 'groen', ['https://drive.google.com/file/d/10oJGDHEpPekQdOpIZq9iv_9orSNYBvXJ/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Opvolgen mond- hygiëne', 'groen', ['https://drive.google.com/file/d/1IJrPjx_2UIEeCIyCuhrHPD3zxLsVSZQi/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Soepatelier', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitdelen gezonde snack', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kooklessen', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kooklessen', 'groen', ['https://drive.google.com/file/d/1U8JzPkyN_K4hIqNTEbcuFK8djn97T96Q/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezonde voeding', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezonde houding', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klassikale douche momenten', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Water op school', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Workshops', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Begeleide middagsport', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Begeleide middagsport', 'groen', ['https://drive.google.com/file/d/1WD8DFjX6WZ4baZGHUpJ1f4dQNLrFvHPv/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Buitenschoolse sport- activiteiten', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Drinkfles', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Drinkfles', 'groen', ['https://drive.google.com/file/d/1L504ezbfWssWBFJkD7_y842cKRfxX3fU/preview',
+                'https://drive.google.com/file/d/1T2cl2fSOZXtluj_jP_c_R7FwmoOLPsif/preview',
+                'https://drive.google.com/file/d/1CavA8PapTSTqt5QgaV6njUGliugjggl6/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Outdoor-education', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezonde traktaties', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Uitstap = enkel water', 'blauw', []),
@@ -487,9 +496,9 @@ var DataService = /** @class */ (function () {
                 'https://drive.google.com/file/d/1pdnHgOUxMVGDvPtTbzumyKE9FUw7Fi8A/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Dagelijks handelen in de klas', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klas Conflicthantering', 'groen', ['https://drive.google.com/file/d/1lOW2pnavSAgXdAqO41hzHZZc6qZPAKek/preview']),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klasgesprekken', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klasgesprekken', 'groen', ['https://drive.google.com/file/d/1cui4p_gyc9rOXT_BA3NLiBjWZd8JYAn-/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Herstel- gesprekken', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Positieve basishouding ik', 'groen', ['https://drive.google.com/file/d/1zAMOIBx0vkbnMiQCsc_XaZSzOoYnI9Op/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Positieve basishouding lk', 'groen', ['https://drive.google.com/file/d/1zAMOIBx0vkbnMiQCsc_XaZSzOoYnI9Op/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Vertrouwens- band', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klas management', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Psycho-sociaal IHP', 'groen', []),
@@ -512,17 +521,18 @@ var DataService = /** @class */ (function () {
         ]);
         // Leren en Studeren
         var data2 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klassenraden', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klassenraden', 'groen', ['https://drive.google.com/file/d/18s4ra2d5CBPehtFwqf4NcWUW9LgZe8YF/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('IHP', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Krachtige leeromgeving', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Differentiëren', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Variatie in werkvormen', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('GASV doelen', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('GOK-beleid', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Project gestuurd leren', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Draaiboek observatiejaar', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Draaiboek opleidingsjaar', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sjabloon ID-fishes', 'blauw', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('GASV doelen', 'groen', ['https://drive.google.com/file/d/1ztGBE8LOizGDbbvhfi95gOsB6yC0bPnH/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('GOK-beleid', 'groen', ['https://drive.google.com/file/d/1V3cmFf75kXjDCUznks0UMv4Qur9ktxXg/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Project gestuurd leren', 'groen', ['https://drive.google.com/file/d/1KEPwismIhs_-pBhO3Nns94D7Xy1BVeHd/preview',
+                'https://drive.google.com/file/d/1nZIkVTlMxEwM-Q1mHgtjlLxrWyGZYxIe/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Draaiboek observatiejaar', 'groen', ['https://drive.google.com/file/d/1uU-iAY2vMhmAzTIidUfGB2JyOIWdYEEe/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Draaiboek opleidingsjaar', 'groen', ['https://drive.google.com/file/d/1V9mOkEpmQlGKc09_5cVx-OmLHPocOea4/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sjabloon ID-fishes', 'blauw', ['https://drive.google.com/file/d/1wwaPIA6TgnacHQwdciyOWr5g4Z6NiDiD/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zelfevaluatie delen', 'blauw', [])
         ], [
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Basisaanbod traject', 'groen', [])
@@ -531,27 +541,37 @@ var DataService = /** @class */ (function () {
         // Schoolloopbaan
         var data3 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten- fluisteraar', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten- gesprekken', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Loopbaan- begeleiding', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stage', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('SODA', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten- fluisteraar', 'groen', ['https://drive.google.com/file/d/1FDXFE7HwNs2XRDphYGJymqeGBHSWNgpr/preview',
+                'https://drive.google.com/file/d/1mGoopmEqp6KqcJVn6lDkEL8wA6Hvt0cl/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten- gesprekken', 'groen', ['https://drive.google.com/file/d/1Hg6rPEywHBuVtMTcRrLURfJTB8gPX02Y/preview',
+                'https://drive.google.com/file/d/1S560NKWOAaAvp-11XHbcoWSHuP0MKrbv/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Loopbaan- begeleiding', 'groen', ['https://drive.google.com/file/d/1UHb_bcwcTwVAV3Hau7U3_Y2N8uzDOe-6/preview',
+                'https://drive.google.com/file/d/1q_sGrctjGSY_QXhPrQCOUxJ7QtUWR4MB/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stage', 'groen', ['https://drive.google.com/file/d/1oXjO_mkhOdBuIXJeT9aasVGwJPqGY5oO/preview',
+                'https://drive.google.com/file/d/1GLK_qNel6dlHovP3CEKTxUV8PjMYu2a9/preview',
+                'https://drive.google.com/file/d/1fH_5TKes9sOnsZVhQXpLj6VFC7HSZIL2/preview',
+                'https://drive.google.com/file/d/1Mwz-z37CpdyC1-mY2Y3ePt3OAAYap1aQ/preview',
+                'https://drive.google.com/file/d/1oN79_Kjqw99kKHHXu2k7GAGusHrmr1JX/preview',
+                'https://drive.google.com/file/d/1KMUoEWPXHSv5m3mNA6bmVveIJJzRFHc8/preview',
+                'https://drive.google.com/file/d/1m3wtfQCFZ5wLuf0TmMbeV6Mfclui-E7G/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('SODA', 'groen', ['https://drive.google.com/file/d/1Gegrejz5TH6lMxINHGprYiASMlaFG43-/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Duaal', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('INTO', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('INTO', 'groen', ['https://drive.google.com/file/d/1umhps8Dau_IHNwQOleslqNXMdoUGRgzc/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('De werkvloer', 'blauw', []),
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Organisatie basisaanbod', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Regulier onderwijs', 'blauw', [])
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Organisatie basisaanbod', 'groen', ['https://drive.google.com/file/d/1wUI-IR3UwcBEziUKv7ISn6pmHaKgOvx6/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Regulier onderwijs', 'blauw', ['https://drive.google.com/file/d/1Z09ghi7InWiI2Y4zmz_zlZ_e20RHmC5r/preview'])
         ], [ // Top
         ]);
         // Preventieve Gezondheidszorg
         var data4 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Verpleegster', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezond schoolontbijt', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('MOS', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezond schoolontbijt', 'groen', ['https://drive.google.com/file/d/1H_kjA48ds9BT5d2NoawhdFWOJF-0FMsb/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('MOS', 'groen', ['https://drive.google.com/file/d/1SZ9jh5IC-yQrFXWyBOg2VMHxoP-NvBhf/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Hygiëne', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sport- activiteiten', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('VCA', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sport- activiteiten', 'groen', ['https://drive.google.com/file/d/10wKJ-EiGDyCwWcP-PVsT5lvVIDSuMGcN/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('VCA', 'groen', ['https://drive.google.com/file/d/1MTZ0OAb6vI-f1KW9ebSxhbrauEIWBcd6/preview',
+                'https://drive.google.com/file/d/1pff1NtzZVZJk4hgaEn24knqPnI1bAbmb/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezond klasontbijt', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gezondheids- beleid', 'blauw', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rookbeleid', 'blauw', []),
@@ -592,18 +612,22 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stille refter', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Project', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klassen- raden', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Leerlingen- gesprekken', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Leerlingen- gesprekken', 'groen', ['https://drive.google.com/file/d/1XnaNr54lZwHVCZpgewBMPRGQ_urlRpXT/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gedragscode in agenda', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Herstel gericht sanctionerings- beleid', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Herstel gericht sanctionerings- beleid', 'groen', ['https://drive.google.com/file/d/1-Lhm3IZmzB0n_Ai_CokngJ4pQZbVrpw2/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zelfstandig- heid', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klas dynamiek', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Individuele stressthermometer', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Visualisaties', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Vaste plaats in klas/rij', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Lessen roosters', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Speelplaats zones', 'groen', ['https://drive.google.com/file/d/1GDi7aZ8l-87KPZDjTWTx4yG_KXHxMLhd/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Voorspelbaar- heid', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Regels', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Prikkelarme omgeving', 'groen', [])
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Regels', 'groen', ['https://drive.google.com/file/d/1bSOmhi_c99F4hsDNAoDAliBz42QDhHOJ/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Prikkelarme omgeving', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stappenplan les verstoren', 'groen', ['https://drive.google.com/file/d/1kEVizH68v-Zs5XssoUf8yHBGUoc1-cj7/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Begeleide Speeltijd activiteiten', 'groen', ['https://drive.google.com/file/d/1VGKPRgk7vqAH2Uybmc3UdV768ulDFhOe/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Spelboxen', 'groen', ['https://drive.google.com/file/d/1JTLgrkLOKFlEku7jl91OGcIKhKRstj4J/preview'])
         ], [
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Individuele vluchtroute', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Wekelijkse leerling gesprekken', 'groen', []),
@@ -660,7 +684,8 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Studie begeleiding', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Bednet', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Individueel evalueren', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sprintplus', 'groen', ['https://drive.google.com/file/d/1F4XjnD60V7LX1IbhOBXeRzVOPmDf5_DV/preview', 'https://drive.google.com/file/d/1cwWCtQpkqCMboJdRfQ9gzdS2Hn0jEjtT/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Sprintplus', 'groen', ['https://drive.google.com/file/d/1F4XjnD60V7LX1IbhOBXeRzVOPmDf5_DV/preview',
+                'https://drive.google.com/file/d/1cwWCtQpkqCMboJdRfQ9gzdS2Hn0jEjtT/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Examens', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Geogebra', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Reken- machine', 'groen', []),
@@ -685,7 +710,8 @@ var DataService = /** @class */ (function () {
         ]);
         // Schoolloopbaan
         var data3 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Taal screening', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('ID-fishes', 'groen', ['https://drive.google.com/file/d/1wrjg90gyOBcM_YRLsHtK71hFnI1Y2D_K/preview']),
+            // new PostIt('Taal screening', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Project', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Onderwijs kiezer', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('deStap', 'groen', []),
@@ -694,7 +720,6 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Gesprekken', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Intrinsieke motivatie', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Getuigenissen', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('ID-fishes', 'groen', ['https://drive.google.com/file/d/1wrjg90gyOBcM_YRLsHtK71hFnI1Y2D_K/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('KR', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Leerling- volgsysteem', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zelf- evaluatie', 'groen', []),
@@ -703,19 +728,19 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Coping strategieën', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Zelfsturend', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Klas gesprekken', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('OLB-bundel', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Info avond', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('OLB-bundel', 'groen', ['https://drive.google.com/file/d/1eQoafdmROtyFfg195eApXFh_h2bStPPx/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Info avond', 'groen', ['https://drive.google.com/file/d/1PT9gFcmM3ptpCv3k2QnenxATYMTx3nO5/preview']),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Toonmoment', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Draaiboek OLB', 'groen', [])
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Draaiboek OLB', 'groen', ['https://drive.google.com/file/d/1QU9P1JKg6U6CAo57ddgyjrs6tyhr2bgi/preview'])
         ], [
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ouder gesprekken', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Info momenten', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Integratie', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Scholen verkennen', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Individuele snuffelstages', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Warme overdrachten', 'groen', [])
         ], [
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Heroriëntering', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Integratie', 'groen', [])
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Heroriëntering', 'groen', [])
         ]);
         // Preventieve Gezondheidszorg
         var data4 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
@@ -732,7 +757,10 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Activiteiten aanbod', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Veiligheids pictogrammen', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Brand evacuatie', 'groen', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ergonomie', 'groen', [])
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ergonomie', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Team informeren', 'groen', []),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Crisisteam', 'groen', ['https://drive.google.com/file/d/1B0PxFcpR_LHKcadQRRpIb5qJ6FhI5oXf/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Jap', 'groen', []),
         ], [
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('samenwerking hulpverleners', 'groen', [])
         ], [
@@ -973,7 +1001,7 @@ var PostIt = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".main {\r\n  width: 100%;\r\n  height: 100%;\r\n  max-height: 100%;\r\n  overflow: hidden;\r\n}\r\n\r\n.nav {\r\n  background-color: var(--blue);\r\n  border-bottom: solid var(--darkblue) 2px;\r\n  height: 5vw;\r\n  width: 100%;\r\n  color: white;\r\n}\r\n\r\n.titel {\r\n  width: 70%;\r\n  margin-right: 15%;\r\n  align-self: center;\r\n}\r\n\r\n.backButton {\r\n  width: 15%;\r\n}\r\n\r\nh1 {\r\n  margin-top: 0.5vw;\r\n  font-size: 3vw;\r\n}\r\n\r\n.btn {\r\n  margin-top: 1vw;\r\n  font-size: 1vw;\r\n}\r\n\r\n.body {\r\n  /* overflow-y: scroll; */\r\n  max-height: 100%;\r\n  /* padding-bottom: 20%; */\r\n}\r\n\r\n.content {\r\n  background-repeat: no-repeat;\r\n  background-position: top;\r\n  background-size: contain;\r\n  margin-top: 1vh;\r\n  /* border: solid red 1px; */\r\n  width: 100%;\r\n  height: 100%;\r\n  display: inline-block;\r\n}\r\n\r\n.top {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-top: 5vw;\r\n  margin-left: 43%;\r\n  margin-right: 43%;\r\n  width: 14%;\r\n  height: 10vw;\r\n  /* border: solid blue 1px; */\r\n  margin-bottom: 0.5vw;\r\n}\r\n\r\n.middle {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 13vw;\r\n  margin-left: 36%;\r\n  margin-right: 36%;\r\n  width: 28%;\r\n  /* border: solid green 1px; */\r\n}\r\n\r\n.bottom {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-top: 0.5vw;\r\n  margin-left: 27%;\r\n  margin-right: 27%;\r\n  width: 46%;\r\n  height: 16vw;\r\n  /* border: solid orange 1px; */\r\n}\r\n\r\np {\r\n  margin-top: 1vh;\r\n  word-wrap: break-word;\r\n  font-size: 0.8vw;\r\n}\r\n\r\n.postit {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 0.3vw;\r\n\r\n  background-image: url('postIt-note.PNG');\r\n  background-size: cover;\r\n  color: var(--blue);\r\n}\r\n\r\n.postit-normal {\r\n  width: 5vw;\r\n  height: 5vw;\r\n  margin: 0vw 0.5vw 0vw 0.5vw;\r\n}\r\n\r\n.postit-small {\r\n  width: 4.5vw;\r\n  height: 4.5vw;\r\n  margin: 0vw 0.2vw 0vw 0.2vw;\r\n}\r\n\r\n.postit-small p {\r\n  font-size: 0.7vw;\r\n}\r\n\r\n.postit-extra-small {\r\n  width: 3.7vw;\r\n  height: 3.7vw;\r\n  margin: 0vw 0vw 0vw 0vw;\r\n}\r\n\r\n.postit-extra-small p {\r\n  font-size: 0.6vw;\r\n}\r\n\r\n.postit-url-exists {\r\n  text-decoration: underline;\r\n  /* border: solid var(--blue) 1px; */\r\n  border-radius: 15%;\r\n}\r\n\r\n.postit-url-exists:hover {\r\n  opacity: 75%;\r\n  cursor: pointer !important;\r\n}\r\n\r\n.postit-groen {\r\n  color: green;\r\n}\r\n\r\n.postit:hover {\r\n  cursor: default;\r\n}\r\n\r\n@media only screen and (min-width: 412px) and (max-width: 1025px) {\r\n  .buttonText {\r\n    display: none;\r\n  }\r\n\r\n  .btn {\r\n    padding: 3%;\r\n  }\r\n\r\n  .btn::after {\r\n    content: \"← Terug\";\r\n  }\r\n}\r\n\r\n@media only screen and (max-width: 411px) {\r\n  .nav {\r\n    height: 10vw;\r\n  }\r\n\r\n  .titel {\r\n    width: 70%;\r\n    margin-right: 15%;\r\n  }\r\n\r\n  .backButton {\r\n    width: 15%;\r\n  }\r\n\r\n  h1 {\r\n    margin-top: 2vw;\r\n    font-size: 3.5vw;\r\n  }\r\n\r\n  .buttonText {\r\n    display: none;\r\n  }\r\n\r\n  .btn {\r\n    margin: 0;\r\n    padding: 0.5vw;\r\n    margin-top: 0.5vw;\r\n    font-size: 2vw;\r\n  }\r\n\r\n  .btn::after {\r\n    content: \"← Terug\";\r\n  }\r\n\r\n  .content {\r\n    background-size: 100vw;\r\n    height: 80vw;\r\n    width: 100vw;\r\n  }\r\n\r\n  .top {\r\n    margin-top: 8vw;\r\n    margin-left: 39%;\r\n    margin-right: 39%;\r\n    width: 22%;\r\n    height: 17vw;\r\n  }\r\n\r\n  .middle {\r\n    margin-left: 30%;\r\n    margin-right: 30%;\r\n    width: 40%;\r\n    height: 22vw;\r\n  }\r\n\r\n  .bottom {\r\n    padding: 1vw;\r\n    margin-left: 15%;\r\n    margin-right: 15%;\r\n    width: 70%;\r\n    height: 26vw;\r\n  }\r\n\r\n  p {\r\n    margin-top: 2vh;\r\n    font-size: 1.4vw;\r\n  }\r\n\r\n  .postit-normal {\r\n    width: 8vw;\r\n    height: 8vw;\r\n  }\r\n\r\n  .postit-small {\r\n    width: 7vw;\r\n    height: 7vw;\r\n  }\r\n\r\n  .postit-small p {\r\n    margin-top: 1.5vh;\r\n    font-size: 1.2vw;\r\n  }\r\n\r\n  .postit-extra-small {\r\n    width: 5.5vw;\r\n    height: 5.5vw;\r\n    margin: 0vw 0.1vw 0vw 0.1vw;\r\n  }\r\n\r\n  .postit-extra-small p {\r\n    padding-right: 0.5vw;\r\n    padding-left: 0.5vw;\r\n    margin-top: 3vw;\r\n    font-size: 0.9vw;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHlyYW1pZC9weXJhbWlkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSw2QkFBNkI7RUFDN0Isd0NBQXdDO0VBQ3hDLFdBQVc7RUFDWCxXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBO0VBQ0UsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxVQUFVO0FBQ1o7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGVBQWU7RUFDZixjQUFjO0FBQ2hCOztBQUVBO0VBQ0Usd0JBQXdCO0VBQ3hCLGdCQUFnQjtFQUNoQix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSw0QkFBNEI7RUFDNUIsd0JBQXdCO0VBQ3hCLHdCQUF3QjtFQUN4QixlQUFlO0VBQ2YsMkJBQTJCO0VBQzNCLFdBQVc7RUFDWCxZQUFZO0VBQ1oscUJBQXFCO0FBQ3ZCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLGVBQWU7RUFDZix1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLFVBQVU7RUFDVixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFLGFBQWE7RUFDYixlQUFlO0VBQ2YsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixVQUFVO0VBQ1YsNkJBQTZCO0FBQy9COztBQUVBO0VBQ0UsYUFBYTtFQUNiLGVBQWU7RUFDZix1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLGlCQUFpQjtFQUNqQixnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLFVBQVU7RUFDVixZQUFZO0VBQ1osOEJBQThCO0FBQ2hDOztBQUVBO0VBQ0UsZUFBZTtFQUNmLHFCQUFxQjtFQUNyQixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQixjQUFjOztFQUVkLHdDQUFxRDtFQUNyRCxzQkFBc0I7RUFDdEIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsVUFBVTtFQUNWLFdBQVc7RUFDWCwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLDJCQUEyQjtBQUM3Qjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLG1DQUFtQztFQUNuQyxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osMEJBQTBCO0FBQzVCOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFO0lBQ0UsYUFBYTtFQUNmOztFQUVBO0lBQ0UsV0FBVztFQUNiOztFQUVBO0lBQ0Usa0JBQWtCO0VBQ3BCO0FBQ0Y7O0FBRUE7RUFDRTtJQUNFLFlBQVk7RUFDZDs7RUFFQTtJQUNFLFVBQVU7SUFDVixpQkFBaUI7RUFDbkI7O0VBRUE7SUFDRSxVQUFVO0VBQ1o7O0VBRUE7SUFDRSxlQUFlO0lBQ2YsZ0JBQWdCO0VBQ2xCOztFQUVBO0lBQ0UsYUFBYTtFQUNmOztFQUVBO0lBQ0UsU0FBUztJQUNULGNBQWM7SUFDZCxpQkFBaUI7SUFDakIsY0FBYztFQUNoQjs7RUFFQTtJQUNFLGtCQUFrQjtFQUNwQjs7RUFFQTtJQUNFLHNCQUFzQjtJQUN0QixZQUFZO0lBQ1osWUFBWTtFQUNkOztFQUVBO0lBQ0UsZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsVUFBVTtJQUNWLFlBQVk7RUFDZDs7RUFFQTtJQUNFLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsVUFBVTtJQUNWLFlBQVk7RUFDZDs7RUFFQTtJQUNFLFlBQVk7SUFDWixnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLFVBQVU7SUFDVixZQUFZO0VBQ2Q7O0VBRUE7SUFDRSxlQUFlO0lBQ2YsZ0JBQWdCO0VBQ2xCOztFQUVBO0lBQ0UsVUFBVTtJQUNWLFdBQVc7RUFDYjs7RUFFQTtJQUNFLFVBQVU7SUFDVixXQUFXO0VBQ2I7O0VBRUE7SUFDRSxpQkFBaUI7SUFDakIsZ0JBQWdCO0VBQ2xCOztFQUVBO0lBQ0UsWUFBWTtJQUNaLGFBQWE7SUFDYiwyQkFBMkI7RUFDN0I7O0VBRUE7SUFDRSxvQkFBb0I7SUFDcEIsbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixnQkFBZ0I7RUFDbEI7QUFDRiIsImZpbGUiOiJzcmMvYXBwL3B5cmFtaWQvcHlyYW1pZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW4ge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBtYXgtaGVpZ2h0OiAxMDAlO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbn1cclxuXHJcbi5uYXYge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUpO1xyXG4gIGJvcmRlci1ib3R0b206IHNvbGlkIHZhcigtLWRhcmtibHVlKSAycHg7XHJcbiAgaGVpZ2h0OiA1dnc7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4udGl0ZWwge1xyXG4gIHdpZHRoOiA3MCU7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNSU7XHJcbiAgYWxpZ24tc2VsZjogY2VudGVyO1xyXG59XHJcblxyXG4uYmFja0J1dHRvbiB7XHJcbiAgd2lkdGg6IDE1JTtcclxufVxyXG5cclxuaDEge1xyXG4gIG1hcmdpbi10b3A6IDAuNXZ3O1xyXG4gIGZvbnQtc2l6ZTogM3Z3O1xyXG59XHJcblxyXG4uYnRuIHtcclxuICBtYXJnaW4tdG9wOiAxdnc7XHJcbiAgZm9udC1zaXplOiAxdnc7XHJcbn1cclxuXHJcbi5ib2R5IHtcclxuICAvKiBvdmVyZmxvdy15OiBzY3JvbGw7ICovXHJcbiAgbWF4LWhlaWdodDogMTAwJTtcclxuICAvKiBwYWRkaW5nLWJvdHRvbTogMjAlOyAqL1xyXG59XHJcblxyXG4uY29udGVudCB7XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiB0b3A7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIG1hcmdpbi10b3A6IDF2aDtcclxuICAvKiBib3JkZXI6IHNvbGlkIHJlZCAxcHg7ICovXHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxufVxyXG5cclxuLnRvcCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBtYXJnaW4tdG9wOiA1dnc7XHJcbiAgbWFyZ2luLWxlZnQ6IDQzJTtcclxuICBtYXJnaW4tcmlnaHQ6IDQzJTtcclxuICB3aWR0aDogMTQlO1xyXG4gIGhlaWdodDogMTB2dztcclxuICAvKiBib3JkZXI6IHNvbGlkIGJsdWUgMXB4OyAqL1xyXG4gIG1hcmdpbi1ib3R0b206IDAuNXZ3O1xyXG59XHJcblxyXG4ubWlkZGxlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGhlaWdodDogMTN2dztcclxuICBtYXJnaW4tbGVmdDogMzYlO1xyXG4gIG1hcmdpbi1yaWdodDogMzYlO1xyXG4gIHdpZHRoOiAyOCU7XHJcbiAgLyogYm9yZGVyOiBzb2xpZCBncmVlbiAxcHg7ICovXHJcbn1cclxuXHJcbi5ib3R0b20ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgbWFyZ2luLXRvcDogMC41dnc7XHJcbiAgbWFyZ2luLWxlZnQ6IDI3JTtcclxuICBtYXJnaW4tcmlnaHQ6IDI3JTtcclxuICB3aWR0aDogNDYlO1xyXG4gIGhlaWdodDogMTZ2dztcclxuICAvKiBib3JkZXI6IHNvbGlkIG9yYW5nZSAxcHg7ICovXHJcbn1cclxuXHJcbnAge1xyXG4gIG1hcmdpbi10b3A6IDF2aDtcclxuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgZm9udC1zaXplOiAwLjh2dztcclxufVxyXG5cclxuLnBvc3RpdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDAuM3Z3O1xyXG5cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi9hc3NldHMvcG9zdEl0LW5vdGUuUE5HXCIpO1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbiAgY29sb3I6IHZhcigtLWJsdWUpO1xyXG59XHJcblxyXG4ucG9zdGl0LW5vcm1hbCB7XHJcbiAgd2lkdGg6IDV2dztcclxuICBoZWlnaHQ6IDV2dztcclxuICBtYXJnaW46IDB2dyAwLjV2dyAwdncgMC41dnc7XHJcbn1cclxuXHJcbi5wb3N0aXQtc21hbGwge1xyXG4gIHdpZHRoOiA0LjV2dztcclxuICBoZWlnaHQ6IDQuNXZ3O1xyXG4gIG1hcmdpbjogMHZ3IDAuMnZ3IDB2dyAwLjJ2dztcclxufVxyXG5cclxuLnBvc3RpdC1zbWFsbCBwIHtcclxuICBmb250LXNpemU6IDAuN3Z3O1xyXG59XHJcblxyXG4ucG9zdGl0LWV4dHJhLXNtYWxsIHtcclxuICB3aWR0aDogMy43dnc7XHJcbiAgaGVpZ2h0OiAzLjd2dztcclxuICBtYXJnaW46IDB2dyAwdncgMHZ3IDB2dztcclxufVxyXG5cclxuLnBvc3RpdC1leHRyYS1zbWFsbCBwIHtcclxuICBmb250LXNpemU6IDAuNnZ3O1xyXG59XHJcblxyXG4ucG9zdGl0LXVybC1leGlzdHMge1xyXG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xyXG4gIC8qIGJvcmRlcjogc29saWQgdmFyKC0tYmx1ZSkgMXB4OyAqL1xyXG4gIGJvcmRlci1yYWRpdXM6IDE1JTtcclxufVxyXG5cclxuLnBvc3RpdC11cmwtZXhpc3RzOmhvdmVyIHtcclxuICBvcGFjaXR5OiA3NSU7XHJcbiAgY3Vyc29yOiBwb2ludGVyICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5wb3N0aXQtZ3JvZW4ge1xyXG4gIGNvbG9yOiBncmVlbjtcclxufVxyXG5cclxuLnBvc3RpdDpob3ZlciB7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG59XHJcblxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDQxMnB4KSBhbmQgKG1heC13aWR0aDogMTAyNXB4KSB7XHJcbiAgLmJ1dHRvblRleHQge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcblxyXG4gIC5idG4ge1xyXG4gICAgcGFkZGluZzogMyU7XHJcbiAgfVxyXG5cclxuICAuYnRuOjphZnRlciB7XHJcbiAgICBjb250ZW50OiBcIuKGkCBUZXJ1Z1wiO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA0MTFweCkge1xyXG4gIC5uYXYge1xyXG4gICAgaGVpZ2h0OiAxMHZ3O1xyXG4gIH1cclxuXHJcbiAgLnRpdGVsIHtcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDE1JTtcclxuICB9XHJcblxyXG4gIC5iYWNrQnV0dG9uIHtcclxuICAgIHdpZHRoOiAxNSU7XHJcbiAgfVxyXG5cclxuICBoMSB7XHJcbiAgICBtYXJnaW4tdG9wOiAydnc7XHJcbiAgICBmb250LXNpemU6IDMuNXZ3O1xyXG4gIH1cclxuXHJcbiAgLmJ1dHRvblRleHQge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcblxyXG4gIC5idG4ge1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcGFkZGluZzogMC41dnc7XHJcbiAgICBtYXJnaW4tdG9wOiAwLjV2dztcclxuICAgIGZvbnQtc2l6ZTogMnZ3O1xyXG4gIH1cclxuXHJcbiAgLmJ0bjo6YWZ0ZXIge1xyXG4gICAgY29udGVudDogXCLihpAgVGVydWdcIjtcclxuICB9XHJcblxyXG4gIC5jb250ZW50IHtcclxuICAgIGJhY2tncm91bmQtc2l6ZTogMTAwdnc7XHJcbiAgICBoZWlnaHQ6IDgwdnc7XHJcbiAgICB3aWR0aDogMTAwdnc7XHJcbiAgfVxyXG5cclxuICAudG9wIHtcclxuICAgIG1hcmdpbi10b3A6IDh2dztcclxuICAgIG1hcmdpbi1sZWZ0OiAzOSU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDM5JTtcclxuICAgIHdpZHRoOiAyMiU7XHJcbiAgICBoZWlnaHQ6IDE3dnc7XHJcbiAgfVxyXG5cclxuICAubWlkZGxlIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAzMCU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDMwJTtcclxuICAgIHdpZHRoOiA0MCU7XHJcbiAgICBoZWlnaHQ6IDIydnc7XHJcbiAgfVxyXG5cclxuICAuYm90dG9tIHtcclxuICAgIHBhZGRpbmc6IDF2dztcclxuICAgIG1hcmdpbi1sZWZ0OiAxNSU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDE1JTtcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBoZWlnaHQ6IDI2dnc7XHJcbiAgfVxyXG5cclxuICBwIHtcclxuICAgIG1hcmdpbi10b3A6IDJ2aDtcclxuICAgIGZvbnQtc2l6ZTogMS40dnc7XHJcbiAgfVxyXG5cclxuICAucG9zdGl0LW5vcm1hbCB7XHJcbiAgICB3aWR0aDogOHZ3O1xyXG4gICAgaGVpZ2h0OiA4dnc7XHJcbiAgfVxyXG5cclxuICAucG9zdGl0LXNtYWxsIHtcclxuICAgIHdpZHRoOiA3dnc7XHJcbiAgICBoZWlnaHQ6IDd2dztcclxuICB9XHJcblxyXG4gIC5wb3N0aXQtc21hbGwgcCB7XHJcbiAgICBtYXJnaW4tdG9wOiAxLjV2aDtcclxuICAgIGZvbnQtc2l6ZTogMS4ydnc7XHJcbiAgfVxyXG5cclxuICAucG9zdGl0LWV4dHJhLXNtYWxsIHtcclxuICAgIHdpZHRoOiA1LjV2dztcclxuICAgIGhlaWdodDogNS41dnc7XHJcbiAgICBtYXJnaW46IDB2dyAwLjF2dyAwdncgMC4xdnc7XHJcbiAgfVxyXG5cclxuICAucG9zdGl0LWV4dHJhLXNtYWxsIHAge1xyXG4gICAgcGFkZGluZy1yaWdodDogMC41dnc7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDAuNXZ3O1xyXG4gICAgbWFyZ2luLXRvcDogM3Z3O1xyXG4gICAgZm9udC1zaXplOiAwLjl2dztcclxuICB9XHJcbn1cclxuIl19 */"
+module.exports = ".main {\r\n  width: 100%;\r\n  height: 100%;\r\n  max-height: 100%;\r\n  overflow: hidden;\r\n}\r\n\r\n.nav {\r\n  background-color: var(--blue);\r\n  border-bottom: solid var(--darkblue) 2px;\r\n  height: 5vw;\r\n  width: 100%;\r\n  color: white;\r\n}\r\n\r\n.titel {\r\n  width: 70%;\r\n  margin-right: 15%;\r\n  align-self: center;\r\n}\r\n\r\n.backButton {\r\n  width: 15%;\r\n}\r\n\r\nh1 {\r\n  margin-top: 0.5vw;\r\n  font-size: 3vw;\r\n}\r\n\r\n.btn {\r\n  margin-top: 1vw;\r\n  font-size: 1vw;\r\n}\r\n\r\n.body {\r\n  /* overflow-y: scroll; */\r\n  max-height: 100%;\r\n  /* padding-bottom: 20%; */\r\n}\r\n\r\nh3 {\r\n  color: var(--blue);\r\n  font-size: 1.4vw;\r\n}\r\n\r\n.uitbreiding {\r\n  position: fixed;\r\n  margin-left: 13.5vw;\r\n}\r\n\r\n.verhoogde {\r\n  position: fixed;\r\n  margin-left: 20vw;\r\n}\r\n\r\n.basis {\r\n  position: fixed;\r\n  margin-left: 30vw;\r\n}\r\n\r\n.content {\r\n  background-repeat: no-repeat;\r\n  background-position: top;\r\n  background-size: contain;\r\n  margin-top: 1vh;\r\n  /* border: solid red 1px; */\r\n  width: 100%;\r\n  height: 100%;\r\n  display: inline-block;\r\n}\r\n\r\n.top {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-top: 5vw;\r\n  margin-left: 43%;\r\n  margin-right: 43%;\r\n  width: 14%;\r\n  height: 10vw;\r\n  /* border: solid blue 1px; */\r\n  margin-bottom: 0.5vw;\r\n}\r\n\r\n.middle {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 13vw;\r\n  margin-left: 36%;\r\n  margin-right: 36%;\r\n  width: 28%;\r\n  /* border: solid green 1px; */\r\n}\r\n\r\n.bottom {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-top: 0.5vw;\r\n  margin-left: 27%;\r\n  margin-right: 27%;\r\n  width: 46%;\r\n  height: 16vw;\r\n  /* border: solid orange 1px; */\r\n}\r\n\r\np {\r\n  margin-top: 1vh;\r\n  word-wrap: break-word;\r\n  font-size: 0.8vw;\r\n}\r\n\r\n.postit {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 0.3vw;\r\n\r\n  background-image: url('postIt-note.PNG');\r\n  background-size: cover;\r\n  color: var(--blue);\r\n}\r\n\r\n.postit-normal {\r\n  width: 5vw;\r\n  height: 5vw;\r\n  margin: 0vw 0.5vw 0vw 0.5vw;\r\n}\r\n\r\n.postit-small {\r\n  width: 4.5vw;\r\n  height: 4.5vw;\r\n  margin: 0vw 0.2vw 0vw 0.2vw;\r\n}\r\n\r\n.postit-small p {\r\n  font-size: 0.7vw;\r\n}\r\n\r\n.postit-extra-small {\r\n  width: 3.7vw;\r\n  height: 3.7vw;\r\n  margin: 0vw 0vw 0vw 0vw;\r\n}\r\n\r\n.postit-extra-small p {\r\n  font-size: 0.6vw;\r\n}\r\n\r\n.postit-url-exists {\r\n  text-decoration: underline;\r\n  /* border: solid var(--blue) 1px; */\r\n  border-radius: 15%;\r\n}\r\n\r\n.postit-url-exists:hover {\r\n  opacity: 75%;\r\n  cursor: pointer !important;\r\n}\r\n\r\n.postit-groen {\r\n  color: green;\r\n}\r\n\r\n.postit:hover {\r\n  cursor: default;\r\n}\r\n\r\n@media only screen and (min-width: 412px) and (max-width: 1025px) {\r\n  .buttonText {\r\n    display: none;\r\n  }\r\n\r\n  .btn {\r\n    padding: 3%;\r\n  }\r\n\r\n  .btn::after {\r\n    content: \"← Terug\";\r\n  }\r\n}\r\n\r\n@media only screen and (max-width: 411px) {\r\n  .nav {\r\n    height: 10vw;\r\n  }\r\n\r\n  .titel {\r\n    width: 70%;\r\n    margin-right: 15%;\r\n  }\r\n\r\n  .backButton {\r\n    width: 15%;\r\n  }\r\n\r\n  h1 {\r\n    margin-top: 2vw;\r\n    font-size: 3.5vw;\r\n  }\r\n\r\n  .buttonText {\r\n    display: none;\r\n  }\r\n\r\n  .btn {\r\n    margin: 0;\r\n    padding: 0.5vw;\r\n    margin-top: 0.5vw;\r\n    font-size: 2vw;\r\n  }\r\n\r\n  .btn::after {\r\n    content: \"← Terug\";\r\n  }\r\n\r\n  .content {\r\n    background-size: 100vw;\r\n    height: 80vw;\r\n    width: 100vw;\r\n  }\r\n\r\n  .top {\r\n    margin-top: 8vw;\r\n    margin-left: 39%;\r\n    margin-right: 39%;\r\n    width: 22%;\r\n    height: 17vw;\r\n  }\r\n\r\n  .middle {\r\n    margin-left: 30%;\r\n    margin-right: 30%;\r\n    width: 40%;\r\n    height: 22vw;\r\n  }\r\n\r\n  .bottom {\r\n    padding: 1vw;\r\n    margin-left: 15%;\r\n    margin-right: 15%;\r\n    width: 70%;\r\n    height: 26vw;\r\n  }\r\n\r\n  p {\r\n    margin-top: 2vh;\r\n    font-size: 1.4vw;\r\n  }\r\n\r\n  .postit-normal {\r\n    width: 8vw;\r\n    height: 8vw;\r\n  }\r\n\r\n  .postit-small {\r\n    width: 7vw;\r\n    height: 7vw;\r\n  }\r\n\r\n  .postit-small p {\r\n    margin-top: 1.5vh;\r\n    font-size: 1.2vw;\r\n  }\r\n\r\n  .postit-extra-small {\r\n    width: 5.5vw;\r\n    height: 5.5vw;\r\n    margin: 0vw 0.1vw 0vw 0.1vw;\r\n  }\r\n\r\n  .postit-extra-small p {\r\n    padding-right: 0.5vw;\r\n    padding-left: 0.5vw;\r\n    margin-top: 3vw;\r\n    font-size: 0.9vw;\r\n  }\r\n\r\n  h3 {\r\n    color: var(--blue);\r\n    font-size: 2vw;\r\n  }\r\n\r\n  .uitbreiding {\r\n    position: fixed;\r\n    margin-left: 21vw;\r\n  }\r\n\r\n  .verhoogde {\r\n    position: fixed;\r\n    margin-left: 32vw;\r\n  }\r\n\r\n  .basis {\r\n    position: fixed;\r\n    margin-left: 45vw;\r\n    padding-bottom: 10vw;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHlyYW1pZC9weXJhbWlkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSw2QkFBNkI7RUFDN0Isd0NBQXdDO0VBQ3hDLFdBQVc7RUFDWCxXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBO0VBQ0UsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxVQUFVO0FBQ1o7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGVBQWU7RUFDZixjQUFjO0FBQ2hCOztBQUVBO0VBQ0Usd0JBQXdCO0VBQ3hCLGdCQUFnQjtFQUNoQix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsZUFBZTtFQUNmLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLGVBQWU7RUFDZixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxlQUFlO0VBQ2YsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsNEJBQTRCO0VBQzVCLHdCQUF3QjtFQUN4Qix3QkFBd0I7RUFDeEIsZUFBZTtFQUNmLDJCQUEyQjtFQUMzQixXQUFXO0VBQ1gsWUFBWTtFQUNaLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGFBQWE7RUFDYixlQUFlO0VBQ2YsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixVQUFVO0VBQ1YsWUFBWTtFQUNaLDRCQUE0QjtFQUM1QixvQkFBb0I7QUFDdEI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsZUFBZTtFQUNmLHVCQUF1QjtFQUN2QixtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsVUFBVTtFQUNWLDZCQUE2QjtBQUMvQjs7QUFFQTtFQUNFLGFBQWE7RUFDYixlQUFlO0VBQ2YsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixVQUFVO0VBQ1YsWUFBWTtFQUNaLDhCQUE4QjtBQUNoQzs7QUFFQTtFQUNFLGVBQWU7RUFDZixxQkFBcUI7RUFDckIsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixtQkFBbUI7RUFDbkIsY0FBYzs7RUFFZCx3Q0FBcUQ7RUFDckQsc0JBQXNCO0VBQ3RCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLFVBQVU7RUFDVixXQUFXO0VBQ1gsMkJBQTJCO0FBQzdCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYiwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLDBCQUEwQjtFQUMxQixtQ0FBbUM7RUFDbkMsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLDBCQUEwQjtBQUM1Qjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFDRTtJQUNFLGFBQWE7RUFDZjs7RUFFQTtJQUNFLFdBQVc7RUFDYjs7RUFFQTtJQUNFLGtCQUFrQjtFQUNwQjtBQUNGOztBQUVBO0VBQ0U7SUFDRSxZQUFZO0VBQ2Q7O0VBRUE7SUFDRSxVQUFVO0lBQ1YsaUJBQWlCO0VBQ25COztFQUVBO0lBQ0UsVUFBVTtFQUNaOztFQUVBO0lBQ0UsZUFBZTtJQUNmLGdCQUFnQjtFQUNsQjs7RUFFQTtJQUNFLGFBQWE7RUFDZjs7RUFFQTtJQUNFLFNBQVM7SUFDVCxjQUFjO0lBQ2QsaUJBQWlCO0lBQ2pCLGNBQWM7RUFDaEI7O0VBRUE7SUFDRSxrQkFBa0I7RUFDcEI7O0VBRUE7SUFDRSxzQkFBc0I7SUFDdEIsWUFBWTtJQUNaLFlBQVk7RUFDZDs7RUFFQTtJQUNFLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLFVBQVU7SUFDVixZQUFZO0VBQ2Q7O0VBRUE7SUFDRSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLFVBQVU7SUFDVixZQUFZO0VBQ2Q7O0VBRUE7SUFDRSxZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixVQUFVO0lBQ1YsWUFBWTtFQUNkOztFQUVBO0lBQ0UsZUFBZTtJQUNmLGdCQUFnQjtFQUNsQjs7RUFFQTtJQUNFLFVBQVU7SUFDVixXQUFXO0VBQ2I7O0VBRUE7SUFDRSxVQUFVO0lBQ1YsV0FBVztFQUNiOztFQUVBO0lBQ0UsaUJBQWlCO0lBQ2pCLGdCQUFnQjtFQUNsQjs7RUFFQTtJQUNFLFlBQVk7SUFDWixhQUFhO0lBQ2IsMkJBQTJCO0VBQzdCOztFQUVBO0lBQ0Usb0JBQW9CO0lBQ3BCLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2YsZ0JBQWdCO0VBQ2xCOztFQUVBO0lBQ0Usa0JBQWtCO0lBQ2xCLGNBQWM7RUFDaEI7O0VBRUE7SUFDRSxlQUFlO0lBQ2YsaUJBQWlCO0VBQ25COztFQUVBO0lBQ0UsZUFBZTtJQUNmLGlCQUFpQjtFQUNuQjs7RUFFQTtJQUNFLGVBQWU7SUFDZixpQkFBaUI7SUFDakIsb0JBQW9CO0VBQ3RCO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9weXJhbWlkL3B5cmFtaWQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYWluIHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgbWF4LWhlaWdodDogMTAwJTtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcblxyXG4ubmF2IHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlKTtcclxuICBib3JkZXItYm90dG9tOiBzb2xpZCB2YXIoLS1kYXJrYmx1ZSkgMnB4O1xyXG4gIGhlaWdodDogNXZ3O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLnRpdGVsIHtcclxuICB3aWR0aDogNzAlO1xyXG4gIG1hcmdpbi1yaWdodDogMTUlO1xyXG4gIGFsaWduLXNlbGY6IGNlbnRlcjtcclxufVxyXG5cclxuLmJhY2tCdXR0b24ge1xyXG4gIHdpZHRoOiAxNSU7XHJcbn1cclxuXHJcbmgxIHtcclxuICBtYXJnaW4tdG9wOiAwLjV2dztcclxuICBmb250LXNpemU6IDN2dztcclxufVxyXG5cclxuLmJ0biB7XHJcbiAgbWFyZ2luLXRvcDogMXZ3O1xyXG4gIGZvbnQtc2l6ZTogMXZ3O1xyXG59XHJcblxyXG4uYm9keSB7XHJcbiAgLyogb3ZlcmZsb3cteTogc2Nyb2xsOyAqL1xyXG4gIG1heC1oZWlnaHQ6IDEwMCU7XHJcbiAgLyogcGFkZGluZy1ib3R0b206IDIwJTsgKi9cclxufVxyXG5cclxuaDMge1xyXG4gIGNvbG9yOiB2YXIoLS1ibHVlKTtcclxuICBmb250LXNpemU6IDEuNHZ3O1xyXG59XHJcblxyXG4udWl0YnJlaWRpbmcge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICBtYXJnaW4tbGVmdDogMTMuNXZ3O1xyXG59XHJcblxyXG4udmVyaG9vZ2RlIHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgbWFyZ2luLWxlZnQ6IDIwdnc7XHJcbn1cclxuXHJcbi5iYXNpcyB7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIG1hcmdpbi1sZWZ0OiAzMHZ3O1xyXG59XHJcblxyXG4uY29udGVudCB7XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiB0b3A7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIG1hcmdpbi10b3A6IDF2aDtcclxuICAvKiBib3JkZXI6IHNvbGlkIHJlZCAxcHg7ICovXHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxufVxyXG5cclxuLnRvcCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBtYXJnaW4tdG9wOiA1dnc7XHJcbiAgbWFyZ2luLWxlZnQ6IDQzJTtcclxuICBtYXJnaW4tcmlnaHQ6IDQzJTtcclxuICB3aWR0aDogMTQlO1xyXG4gIGhlaWdodDogMTB2dztcclxuICAvKiBib3JkZXI6IHNvbGlkIGJsdWUgMXB4OyAqL1xyXG4gIG1hcmdpbi1ib3R0b206IDAuNXZ3O1xyXG59XHJcblxyXG4ubWlkZGxlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGhlaWdodDogMTN2dztcclxuICBtYXJnaW4tbGVmdDogMzYlO1xyXG4gIG1hcmdpbi1yaWdodDogMzYlO1xyXG4gIHdpZHRoOiAyOCU7XHJcbiAgLyogYm9yZGVyOiBzb2xpZCBncmVlbiAxcHg7ICovXHJcbn1cclxuXHJcbi5ib3R0b20ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgbWFyZ2luLXRvcDogMC41dnc7XHJcbiAgbWFyZ2luLWxlZnQ6IDI3JTtcclxuICBtYXJnaW4tcmlnaHQ6IDI3JTtcclxuICB3aWR0aDogNDYlO1xyXG4gIGhlaWdodDogMTZ2dztcclxuICAvKiBib3JkZXI6IHNvbGlkIG9yYW5nZSAxcHg7ICovXHJcbn1cclxuXHJcbnAge1xyXG4gIG1hcmdpbi10b3A6IDF2aDtcclxuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgZm9udC1zaXplOiAwLjh2dztcclxufVxyXG5cclxuLnBvc3RpdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDAuM3Z3O1xyXG5cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi9hc3NldHMvcG9zdEl0LW5vdGUuUE5HXCIpO1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbiAgY29sb3I6IHZhcigtLWJsdWUpO1xyXG59XHJcblxyXG4ucG9zdGl0LW5vcm1hbCB7XHJcbiAgd2lkdGg6IDV2dztcclxuICBoZWlnaHQ6IDV2dztcclxuICBtYXJnaW46IDB2dyAwLjV2dyAwdncgMC41dnc7XHJcbn1cclxuXHJcbi5wb3N0aXQtc21hbGwge1xyXG4gIHdpZHRoOiA0LjV2dztcclxuICBoZWlnaHQ6IDQuNXZ3O1xyXG4gIG1hcmdpbjogMHZ3IDAuMnZ3IDB2dyAwLjJ2dztcclxufVxyXG5cclxuLnBvc3RpdC1zbWFsbCBwIHtcclxuICBmb250LXNpemU6IDAuN3Z3O1xyXG59XHJcblxyXG4ucG9zdGl0LWV4dHJhLXNtYWxsIHtcclxuICB3aWR0aDogMy43dnc7XHJcbiAgaGVpZ2h0OiAzLjd2dztcclxuICBtYXJnaW46IDB2dyAwdncgMHZ3IDB2dztcclxufVxyXG5cclxuLnBvc3RpdC1leHRyYS1zbWFsbCBwIHtcclxuICBmb250LXNpemU6IDAuNnZ3O1xyXG59XHJcblxyXG4ucG9zdGl0LXVybC1leGlzdHMge1xyXG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xyXG4gIC8qIGJvcmRlcjogc29saWQgdmFyKC0tYmx1ZSkgMXB4OyAqL1xyXG4gIGJvcmRlci1yYWRpdXM6IDE1JTtcclxufVxyXG5cclxuLnBvc3RpdC11cmwtZXhpc3RzOmhvdmVyIHtcclxuICBvcGFjaXR5OiA3NSU7XHJcbiAgY3Vyc29yOiBwb2ludGVyICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5wb3N0aXQtZ3JvZW4ge1xyXG4gIGNvbG9yOiBncmVlbjtcclxufVxyXG5cclxuLnBvc3RpdDpob3ZlciB7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG59XHJcblxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDQxMnB4KSBhbmQgKG1heC13aWR0aDogMTAyNXB4KSB7XHJcbiAgLmJ1dHRvblRleHQge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcblxyXG4gIC5idG4ge1xyXG4gICAgcGFkZGluZzogMyU7XHJcbiAgfVxyXG5cclxuICAuYnRuOjphZnRlciB7XHJcbiAgICBjb250ZW50OiBcIuKGkCBUZXJ1Z1wiO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA0MTFweCkge1xyXG4gIC5uYXYge1xyXG4gICAgaGVpZ2h0OiAxMHZ3O1xyXG4gIH1cclxuXHJcbiAgLnRpdGVsIHtcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDE1JTtcclxuICB9XHJcblxyXG4gIC5iYWNrQnV0dG9uIHtcclxuICAgIHdpZHRoOiAxNSU7XHJcbiAgfVxyXG5cclxuICBoMSB7XHJcbiAgICBtYXJnaW4tdG9wOiAydnc7XHJcbiAgICBmb250LXNpemU6IDMuNXZ3O1xyXG4gIH1cclxuXHJcbiAgLmJ1dHRvblRleHQge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcblxyXG4gIC5idG4ge1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcGFkZGluZzogMC41dnc7XHJcbiAgICBtYXJnaW4tdG9wOiAwLjV2dztcclxuICAgIGZvbnQtc2l6ZTogMnZ3O1xyXG4gIH1cclxuXHJcbiAgLmJ0bjo6YWZ0ZXIge1xyXG4gICAgY29udGVudDogXCLihpAgVGVydWdcIjtcclxuICB9XHJcblxyXG4gIC5jb250ZW50IHtcclxuICAgIGJhY2tncm91bmQtc2l6ZTogMTAwdnc7XHJcbiAgICBoZWlnaHQ6IDgwdnc7XHJcbiAgICB3aWR0aDogMTAwdnc7XHJcbiAgfVxyXG5cclxuICAudG9wIHtcclxuICAgIG1hcmdpbi10b3A6IDh2dztcclxuICAgIG1hcmdpbi1sZWZ0OiAzOSU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDM5JTtcclxuICAgIHdpZHRoOiAyMiU7XHJcbiAgICBoZWlnaHQ6IDE3dnc7XHJcbiAgfVxyXG5cclxuICAubWlkZGxlIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAzMCU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDMwJTtcclxuICAgIHdpZHRoOiA0MCU7XHJcbiAgICBoZWlnaHQ6IDIydnc7XHJcbiAgfVxyXG5cclxuICAuYm90dG9tIHtcclxuICAgIHBhZGRpbmc6IDF2dztcclxuICAgIG1hcmdpbi1sZWZ0OiAxNSU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDE1JTtcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBoZWlnaHQ6IDI2dnc7XHJcbiAgfVxyXG5cclxuICBwIHtcclxuICAgIG1hcmdpbi10b3A6IDJ2aDtcclxuICAgIGZvbnQtc2l6ZTogMS40dnc7XHJcbiAgfVxyXG5cclxuICAucG9zdGl0LW5vcm1hbCB7XHJcbiAgICB3aWR0aDogOHZ3O1xyXG4gICAgaGVpZ2h0OiA4dnc7XHJcbiAgfVxyXG5cclxuICAucG9zdGl0LXNtYWxsIHtcclxuICAgIHdpZHRoOiA3dnc7XHJcbiAgICBoZWlnaHQ6IDd2dztcclxuICB9XHJcblxyXG4gIC5wb3N0aXQtc21hbGwgcCB7XHJcbiAgICBtYXJnaW4tdG9wOiAxLjV2aDtcclxuICAgIGZvbnQtc2l6ZTogMS4ydnc7XHJcbiAgfVxyXG5cclxuICAucG9zdGl0LWV4dHJhLXNtYWxsIHtcclxuICAgIHdpZHRoOiA1LjV2dztcclxuICAgIGhlaWdodDogNS41dnc7XHJcbiAgICBtYXJnaW46IDB2dyAwLjF2dyAwdncgMC4xdnc7XHJcbiAgfVxyXG5cclxuICAucG9zdGl0LWV4dHJhLXNtYWxsIHAge1xyXG4gICAgcGFkZGluZy1yaWdodDogMC41dnc7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDAuNXZ3O1xyXG4gICAgbWFyZ2luLXRvcDogM3Z3O1xyXG4gICAgZm9udC1zaXplOiAwLjl2dztcclxuICB9XHJcblxyXG4gIGgzIHtcclxuICAgIGNvbG9yOiB2YXIoLS1ibHVlKTtcclxuICAgIGZvbnQtc2l6ZTogMnZ3O1xyXG4gIH1cclxuXHJcbiAgLnVpdGJyZWlkaW5nIHtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIG1hcmdpbi1sZWZ0OiAyMXZ3O1xyXG4gIH1cclxuXHJcbiAgLnZlcmhvb2dkZSB7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBtYXJnaW4tbGVmdDogMzJ2dztcclxuICB9XHJcblxyXG4gIC5iYXNpcyB7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBtYXJnaW4tbGVmdDogNDV2dztcclxuICAgIHBhZGRpbmctYm90dG9tOiAxMHZ3O1xyXG4gIH1cclxufVxyXG4iXX0= */"
 
 /***/ }),
 
