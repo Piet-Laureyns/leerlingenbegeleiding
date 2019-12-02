@@ -296,7 +296,7 @@ var DataService = /** @class */ (function () {
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Inschrijvings- procedure', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Kooklessen', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Talenten portfolio', 'blauw', []),
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rots en Waten', 'blauw', [])
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Rots en Water', 'blauw', [])
         ], [
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Stage', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Ouders', 'groen', []),
@@ -710,7 +710,7 @@ var DataService = /** @class */ (function () {
         ]);
         // Schoolloopbaan
         var data3 = new _pyramidData__WEBPACK_IMPORTED_MODULE_3__["PyramidData"]([
-            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('ID-fishes', 'groen', ['https://drive.google.com/file/d/1wrjg90gyOBcM_YRLsHtK71hFnI1Y2D_K/preview']),
+            new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('ID-fiches', 'groen', ['https://drive.google.com/file/d/1wrjg90gyOBcM_YRLsHtK71hFnI1Y2D_K/preview']),
             // new PostIt('Taal screening', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Project', 'groen', []),
             new _postIt__WEBPACK_IMPORTED_MODULE_2__["PostIt"]('Onderwijs kiezer', 'groen', []),
